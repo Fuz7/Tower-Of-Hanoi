@@ -5,7 +5,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        'Pixelify-Regular':['Pixelify-Regular'],
+        'Pixelify-Medium':['Pixelify-Medium'],
+        'Pixelify-SemiBold':['Pixelify-SemiBold'],
+        'Pixelify-Bold':['Pixelify-Bold'],
+
+      }
+    },
   },
   plugins: [],
 }

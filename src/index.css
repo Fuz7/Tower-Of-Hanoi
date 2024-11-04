@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background: #ff9759;
+}
+
+@font-face {
+  font-family: 'Pixelify-Regular';
+  src: url('@fonts/PixelifySans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Pixelify-Medium';
+  src: url('@fonts/PixelifySans-Medium.ttf');
+}
+@font-face {
+  font-family: 'Pixelify-SemiBold';
+  src: url('@fonts/PixelifySans-SemiBold.ttf');
+}
+@font-face {
+  font-family: 'Pixelify-Bold';
+  src: url('@fonts/PixelifySans-Bold.ttf');
+}
+
+
+.hoverable:hover span{
+  width: 100%;
+  height: 100%;
+}
