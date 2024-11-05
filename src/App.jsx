@@ -5,16 +5,16 @@ import FastForwardButtons from './components/FastForwardButtons';
 import DiskInput from './components/DiskInput';
 import DiskRods from './components/DiskRods';
 function App() {
-  const [diskNumber, setDiskNumber] = useState(3);
+  const [diskNumber, setDiskNumber] = useState([3]);
   const [startingPoint, setStartingPoint] = useState('A');
   const [endPoint, setEndPoint] = useState('B');
 
   const handleDiskInputChange = (e) => {
     const newValue = parseInt(e.target.value, 10);
     if (newValue >= 1 && newValue <= 14) {
-      setDiskNumber(newValue);
+      setDiskNumber([newValue]);
     } else if (e.target.value === '') {
-      setDiskNumber('');
+      setDiskNumber([diskNumber[0],'']);
     }
   };
   return (
@@ -87,7 +87,7 @@ function App() {
         </section>
         <section className="mt-auto flex flex-col">
           <div className="flex gap-[450px] self-center">
-            <DiskRods />
+            <DiskRods diskNumber={diskNumber[0]} startingPoint={startingPoint} endPoint={endPoint}/>
           </div>
           <div className="w-full h-[58px] bg-black"></div>
         </section>

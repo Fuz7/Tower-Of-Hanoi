@@ -1,11 +1,12 @@
 export default function DiskInput({ diskNumber, handleDiskInputChange }) {
+
   return (
     <div className="flex">
       <p className="font-Pixelify-Regular text-[48px] relative w-fit">Disk: </p>
       <input
         type="text"
         placeholder="1-14"
-        value={diskNumber}
+        value={diskNumber[diskNumber.length -1]}
         onChange={handleDiskInputChange}
         className="w-[133px] h-[41px] rounded-[45px] flex justify-center text-center
                font-Pixelify-Regular text-[36px] self-center ml-[20px]  
