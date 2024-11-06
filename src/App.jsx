@@ -7,8 +7,8 @@ import DiskRods from './components/DiskRods';
 function App() {
   const [diskNumber, setDiskNumber] = useState([3]);
   const [startingPoint, setStartingPoint] = useState('A');
-  const [endPoint, setEndPoint] = useState('B');
-
+  const [endPoint, setEndPoint] = useState('C');
+  const [isPlaying,setIsPlaying] = useState(false)
   const handleDiskInputChange = (e) => {
     const newValue = parseInt(e.target.value, 10);
     if (newValue >= 1 && newValue <= 14) {
@@ -80,6 +80,7 @@ function App() {
            transition-all ease-out duration-300
             rounded-[42px] bg-white hover:bg-purple-700
             hover:text-white"
+            onClick={()=>!isPlaying && setIsPlaying(true)}
           >
             {' '}
             Start
@@ -87,7 +88,7 @@ function App() {
         </section>
         <section className="mt-auto flex flex-col">
           <div className="flex gap-[450px] self-center">
-            <DiskRods diskNumber={diskNumber[0]} startingPoint={startingPoint} endPoint={endPoint}/>
+            <DiskRods diskNumber={diskNumber[0]} startingPoint={startingPoint} endPoint={endPoint} isPlaying={isPlaying}/>
           </div>
           <div className="w-full h-[58px] bg-black"></div>
         </section>
