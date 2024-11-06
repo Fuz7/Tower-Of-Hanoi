@@ -16,7 +16,7 @@ function App() {
     } else if (e.target.value === '') {
       setDiskNumber([diskNumber[0],'']);
     }
-  };
+   };
   return (
     <div
       className="max-w-[100vw] h-[100vh] 
