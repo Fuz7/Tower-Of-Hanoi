@@ -1,8 +1,13 @@
 import { useMemo } from 'react';
 import colorGenerator from '../utils/colorGenerator';
+import towerOfHanoi from '../utils/towerOfHanoi'; 
 
 export default function DiskRods({ diskNumber,startingPoint,endPoint }) {
   const colorsArray = useMemo(() => colorGenerator(diskNumber), [diskNumber]);
+  const rods = ['A','B','C']
+  const otherRod = useMemo(()=>rods.filter((currentRod) => currentRod != startingPoint && currentRod != endPoint)[0],[startingPoint,endPoint])
+
+  console.log(towerOfHanoi(diskNumber,startingPoint,endPoint,otherRod))
   return (
     <>
       {' '}
@@ -19,6 +24,8 @@ export default function DiskRods({ diskNumber,startingPoint,endPoint }) {
               backgroundColor: `hsl(${color}, 75%, 50%)`,
 
             }}
+            data-index={diskNumber - index}
+            data-
             className={`h-[27px] rounded-full  `}
           ></div>
         ))}</>
