@@ -5,7 +5,7 @@ import Disks from './Disks';
 import { useAnimate } from 'framer-motion';
 
 
-export default function DiskRods({ diskNumber,startingPoint,endPoint, isPlaying,setIsPlaying }) {
+export default function DiskRods({ diskNumber,startingPoint,endPoint, isPlaying,setIsPlaying, playSpeed }) {
   const colorsArray = useMemo(() => colorGenerator(diskNumber), [diskNumber]);
   const [scope,animate] = useAnimate()
   const rods = ['A','B','C']
@@ -23,7 +23,7 @@ export default function DiskRods({ diskNumber,startingPoint,endPoint, isPlaying,
         (
           <div className='h-full w-full flex flex-col-reverse items-center  justify-start'
           ref={scope}>
-            <Disks colorsArray={colorsArray} movesArray={movesArray} isPlaying={isPlaying} scope={scope} animate={animate} setIsPlaying={setIsPlaying}/>
+            <Disks colorsArray={colorsArray} movesArray={movesArray} isPlaying={isPlaying} scope={scope} animate={animate} setIsPlaying={setIsPlaying} playSpeed={playSpeed}/>
           </div>
         ):null}
         
@@ -35,7 +35,7 @@ export default function DiskRods({ diskNumber,startingPoint,endPoint, isPlaying,
       {startingPoint === 'B'?(
           <div className='h-full w-full flex flex-col-reverse items-center  justify-start'
           ref={scope}>
-            <Disks colorsArray={colorsArray} movesArray={movesArray} isPlaying={isPlaying} scope={scope} animate={animate} setIsPlaying={setIsPlaying}/>
+            <Disks colorsArray={colorsArray} movesArray={movesArray} isPlaying={isPlaying} scope={scope} animate={animate} setIsPlaying={setIsPlaying} playSpeed={playSpeed}/>
           </div>
         ):null}
       </div>
@@ -46,7 +46,7 @@ export default function DiskRods({ diskNumber,startingPoint,endPoint, isPlaying,
       {startingPoint === 'C'?(
           <div className='h-full w-full flex flex-col-reverse items-center  justify-start'
           ref={scope}>
-          <Disks colorsArray={colorsArray} movesArray={movesArray} isPlaying={isPlaying} scope={scope} animate={animate} setIsPlaying={setIsPlaying}/>
+          <Disks colorsArray={colorsArray} movesArray={movesArray} isPlaying={isPlaying} scope={scope} animate={animate} setIsPlaying={setIsPlaying} playSpeed={playSpeed}/>
           </div>
         ):null}
       </div>

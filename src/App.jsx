@@ -9,6 +9,7 @@ function App() {
   const [startingPoint, setStartingPoint] = useState('A');
   const [endPoint, setEndPoint] = useState('C');
   const [isPlaying,setIsPlaying] = useState(false)
+  const [playSpeed,setPlaySpeed] = useState('1x')
   const handleDiskInputChange = (e) => {
     const newValue = parseInt(e.target.value, 10);
     if (newValue >= 1 && newValue <= 14) {
@@ -55,7 +56,7 @@ function App() {
              w-[384px] h-[54px] bg-white rounded-[9px] overflow-clip
              shadow-[0_4px_4px_0px_rgba(0,0,0,0.6)]"
             >
-              <FastForwardButtons />
+              <FastForwardButtons playSpeed={playSpeed} setPlaySpeed={setPlaySpeed} />
 
               <button className="relative">
                 <span
@@ -88,7 +89,8 @@ function App() {
         </section>
         <section className="mt-auto flex flex-col">
           <div className="flex gap-[450px] self-center">
-            <DiskRods diskNumber={diskNumber[0]} startingPoint={startingPoint} endPoint={endPoint} isPlaying={isPlaying} setIsPlaying={setIsPlaying}/>
+            <DiskRods diskNumber={diskNumber[0]} startingPoint={startingPoint} 
+            endPoint={endPoint} isPlaying={isPlaying} setIsPlaying={setIsPlaying} playSpeed={playSpeed}/>
           </div>
           <div className="w-full h-[58px] bg-black"></div>
         </section>
