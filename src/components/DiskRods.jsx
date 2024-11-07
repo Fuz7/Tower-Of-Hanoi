@@ -12,7 +12,9 @@ export default function DiskRods({ diskNumber,startingPoint,endPoint, isPlaying,
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const otherRod = useMemo(()=>rods.filter((currentRod) => currentRod != startingPoint && currentRod != endPoint)[0],[startingPoint,endPoint])
 
-  const movesArray = towerOfHanoi(diskNumber,startingPoint,endPoint,otherRod)
+  const movesArray = useMemo(() => {
+    return towerOfHanoi(diskNumber, startingPoint, endPoint, otherRod);
+  }, [diskNumber, startingPoint, endPoint, otherRod]);  
   return (
     <>
       {' '}

@@ -100,7 +100,7 @@ export default function Disks({colorsArray,movesArray,isPlaying,scope,animate,se
     
     animatePlaying(0)
   }
-}, [isPlaying, animate, scope, playSpeed, setIsPlaying])
+}, [isPlaying, animate, scope, playSpeed, setIsPlaying,skipRef,colorsArray,movesArray])
   return(
     <>
     {colorsArray.map((color, index) => (
