@@ -1,7 +1,9 @@
+import DisabledSpan from "./DisabledSpan";
 export default function FastForwardButtons({
   playSpeed,
   setPlaySpeed,
   skipRef,
+  isPlaying,
 }) {
   return (
     <>
@@ -9,8 +11,9 @@ export default function FastForwardButtons({
       <button
         className=" border-black border-r-[1px] relative
               hoverable"
-        onClick={() => setPlaySpeed('1x')}
+        onClick={() => !isPlaying &&setPlaySpeed('1x')}
       >
+        <DisabledSpan  borderRadius={0} isPlaying={isPlaying}/>
         <span
           className="absolute right-0 top-0 h-0
                 transition-all overflow-clip
@@ -27,8 +30,9 @@ export default function FastForwardButtons({
       <button
         className=" border-black border-r-[1px] 
               relative hoverable"
-        onClick={() => setPlaySpeed('2x')}
+        onClick={() => !isPlaying && setPlaySpeed('2x')}
       >
+        <DisabledSpan  borderRadius={0} isPlaying={isPlaying}/>
         <span
           className="absolute right-0 top-0 w-0 
                 transition-all overflow-clip
@@ -45,8 +49,9 @@ export default function FastForwardButtons({
       <button
         className="border-black border-r-[1px]
               relative hoverable"
-        onClick={() => setPlaySpeed('3x')}
+        onClick={() => !isPlaying && setPlaySpeed('3x')}
       >
+        <DisabledSpan  borderRadius={0} isPlaying={isPlaying}/>
         <span
           className="absolute left-0 bottom-0 h-0 
                 transition-all overflow-clip
@@ -63,8 +68,10 @@ export default function FastForwardButtons({
       <button
         className="relative hoverable
                border-black border-r-[1px]"
-        onClick={() => setPlaySpeed('4x')}
+        onClick={() => !isPlaying && setPlaySpeed('4x')}
+
       >
+        <DisabledSpan  borderRadius={0} isPlaying={isPlaying}/>
         <span
           className="absolute left-0 top-0 w-0 
                 transition-all overflow-clip
@@ -78,20 +85,23 @@ export default function FastForwardButtons({
           4x
         </span>
       </button>
-        <button className="relative"
-          onClick={()=> {skipRef.current = true} }
-        >
-          <span
-            className="absolute left-0 top-0 w-full
+      <button
+        className="relative"
+        onClick={() => {
+          if (isPlaying) skipRef.current = true;
+        }}
+      >
+        <span
+          className="absolute left-0 top-0 w-full
                 transition-all overflow-clip
                 h-full"
-          ></span>
-          <span
-            className="z-10 relative block
+        ></span>
+        <span
+          className="z-10 relative block
                  hover:text-white  transition-all
                 w-full h-full px-[18px]  hover:bg-purple-700"
-          >{`>>`}</span>
-        </button>
+        >{`>>`}</span>
+      </button>
     </>
   );
 }

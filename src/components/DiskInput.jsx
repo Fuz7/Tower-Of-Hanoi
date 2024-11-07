@@ -1,4 +1,4 @@
-export default function DiskInput({ diskNumber, handleDiskInputChange }) {
+export default function DiskInput({ diskNumber, handleDiskInputChange,isPlaying }) {
 
   return (
     <div className="flex">
@@ -6,6 +6,7 @@ export default function DiskInput({ diskNumber, handleDiskInputChange }) {
       <input
         type="text"
         placeholder="1-14"
+        disabled={isPlaying}
         value={diskNumber[diskNumber.length -1]}
         onChange={handleDiskInputChange}
         className="w-[133px] h-[41px] rounded-[45px] flex justify-center text-center

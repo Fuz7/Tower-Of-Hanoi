@@ -1,16 +1,21 @@
-export default function EndPoint({startingPoint,endPoint,setEndPoint}) {
+import DisabledSpan from "./DisabledSpan";
+
+
+
+export default function EndPoint({startingPoint,endPoint,setEndPoint,isPlaying}) {
   return (
     <p className="font-Pixelify-Regular text-[48px] relative w-fit ">
       End Point:
       <button
-        className="absolute w-[54px] h-[54px] bg-white
+        className={`absolute w-[54px] h-[54px] bg-white
                 flex flex-col 
                 justify-start
               items-center transition-all duration-300 overflow-clip ease-out
               right-[-76px] top-[10px]  rounded-[100px] text-center text-[36px]
-              hover:h-[219px] hover:rounded-[9px]
-              shadow-[0_4px_4px_0px_rgba(0,0,0,0.6)]"
+              ${!isPlaying && ' hover:h-[219px] hover:rounded-[9px]'}
+              shadow-[0_4px_4px_0px_rgba(0,0,0,0.6)]`}
       >
+        <DisabledSpan borderRadius={9} isPlaying={isPlaying} />
         {endPoint}
         <span
           className={`block border-t-[1px] w-full border-black 

@@ -43,13 +43,17 @@ function App() {
               startingPoint={startingPoint}
               endPoint={endPoint}
               setStartingPoint={setStartingPoint}
+              isPlaying={isPlaying}
             />
             <EndPoint startingPoint={startingPoint}
             endPoint={endPoint}
-            setEndPoint={setEndPoint} />
+            setEndPoint={setEndPoint}
+            isPlaying={isPlaying}
+            />
           </div>
           <div className="flex flex-col items-start ">
             <DiskInput
+              isPlaying={isPlaying}
               diskNumber={diskNumber}
               handleDiskInputChange={handleDiskInputChange}
             />
@@ -58,7 +62,7 @@ function App() {
              w-[384px] h-[54px] bg-white rounded-[9px] overflow-clip
              shadow-[0_4px_4px_0px_rgba(0,0,0,0.6)]"
             >
-              <FastForwardButtons playSpeed={playSpeed} setPlaySpeed={setPlaySpeed} skipRef={skipRef} />
+              <FastForwardButtons playSpeed={playSpeed} setPlaySpeed={setPlaySpeed} skipRef={skipRef} isPlaying={isPlaying} />
 
             </div>
           </div>
