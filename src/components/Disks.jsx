@@ -2,13 +2,26 @@ import { useEffect, useRef } from "react"
 
 
 export default function Disks({colorsArray,movesArray,isPlaying,scope,animate,setIsPlaying}){
-  
+  function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+  }
   console.log(movesArray)
   useEffect(()=>{
     const rodValue = {A:1,B:2,C:3}
     if(isPlaying){
       const animatePlaying = async(counter)=>{
-        if(counter === 0){}
+        if(counter === 0){
+          const disksElements = Array.from(scope.current.children)
+         const repositionElements = async () => {
+        for (const disk of disksElements) {
+        animate(disk, { x: 0 }); // Waits for this animation to finish
+        disk.setAttribute('data-rod', movesArray[0].startingRod);
+        }
+       await delay(1000)
+       };
+
+        await repositionElements(); 
+        }
         if(counter !==movesArray.length){
           const currentElementIndex = movesArray[counter].disk
           const currentElementStartingRod = movesArray[counter].startingRod
