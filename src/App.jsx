@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import StartPoint from './components/StartPoint';
 import EndPoint from './components/EndPoint';
 import FastForwardButtons from './components/FastForwardButtons';
@@ -10,7 +10,8 @@ function App() {
   const [endPoint, setEndPoint] = useState('C');
   const [isPlaying,setIsPlaying] = useState(false)
   const [playSpeed,setPlaySpeed] = useState('1x')
-  const handleDiskInputChange = (e) => {
+  const skipRef = useRef(false)
+    const handleDiskInputChange = (e) => {
     const newValue = parseInt(e.target.value, 10);
     if (newValue >= 1 && newValue <= 14) {
       setDiskNumber([newValue]);
@@ -33,6 +34,7 @@ function App() {
           shadow-[inset_0px_-4px_0px_rgba(0,0,0,0.6)]
          bg-white px-[36px] rounded-3xl"
         >
+
           Tower Of Hanoi
         </h1>
         <section className="flex justify-between mt-[40px]">
@@ -56,20 +58,8 @@ function App() {
              w-[384px] h-[54px] bg-white rounded-[9px] overflow-clip
              shadow-[0_4px_4px_0px_rgba(0,0,0,0.6)]"
             >
-              <FastForwardButtons playSpeed={playSpeed} setPlaySpeed={setPlaySpeed} />
+              <FastForwardButtons playSpeed={playSpeed} setPlaySpeed={setPlaySpeed} skipRef={skipRef} />
 
-              <button className="relative">
-                <span
-                  className="absolute left-0 top-0 w-full
-                transition-all overflow-clip
-                h-full"
-                ></span>
-                <span
-                  className="z-10 relative block
-                 hover:text-white  transition-all
-                w-full h-full px-[18px]  hover:bg-purple-700"
-                >{`>>`}</span>
-              </button>
             </div>
           </div>
           <button
@@ -90,7 +80,7 @@ function App() {
         <section className="mt-auto flex flex-col">
           <div className="flex gap-[450px] self-center">
             <DiskRods diskNumber={diskNumber[0]} startingPoint={startingPoint} 
-            endPoint={endPoint} isPlaying={isPlaying} setIsPlaying={setIsPlaying} playSpeed={playSpeed}/>
+            endPoint={endPoint} isPlaying={isPlaying} setIsPlaying={setIsPlaying} playSpeed={playSpeed} skipRef={skipRef}/>
           </div>
           <div className="w-full h-[58px] bg-black"></div>
         </section>
