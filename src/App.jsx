@@ -88,7 +88,7 @@ function App() {
         </section>
         <section className="mt-auto flex flex-col">
           <div className="flex gap-[450px] self-center">
-            <DiskRods diskNumber={diskNumber[0]} startingPoint={startingPoint} endPoint={endPoint} isPlaying={isPlaying}/>
+            <DiskRods diskNumber={diskNumber[0]} startingPoint={startingPoint} endPoint={endPoint} isPlaying={isPlaying} setIsPlaying={setIsPlaying}/>
           </div>
           <div className="w-full h-[58px] bg-black"></div>
         </section>
